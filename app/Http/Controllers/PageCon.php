@@ -10,7 +10,7 @@ class PageCon extends Controller
 {
     public function login()
     {
-        $room = Room::where('nama_room','Deluxe Moon') -> get();
+        $room = Room::all();
         return view('page.loginPage', ['room' => $room]);
     }
     
