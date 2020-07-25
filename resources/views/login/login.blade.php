@@ -1,80 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1", shrink-to-fit="no">
-  <title>Login</title>
-  <!-- base:css -->
-  <link rel="stylesheet" href="{{ asset('ladun/login/vendors/mdi/css/materialdesignicons.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('ladun/login/vendors/base/vendor.bundle.base.css') }}">
-  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@700&family=Nunito:wght@600&display=swap" rel="stylesheet">
-  <!-- endinject -->
-  <!-- plugin css for this page -->
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="{{ asset('ladun/login/vendors/base/vendor.bundle.base.css') }}">
-  <!-- endinject -->
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/izitoast/css/iziToast.min.css">
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Login &mdash; Stisla</title>
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/fontawesome/css/all.min.css">
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/bootstrap-social/bootstrap-social.css">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/style.css">
+    <link rel="stylesheet" href="https://demo.getstisla.com/assets/css/components.css">
+
 </head>
 
-<body style="font-family: 'Nunito', sans-serif;">
-  <div class="container-scroller">
-    <div class="container-fluid page-body-wrapper full-page-wrapper">
-      <div class="main-panel">
-        <div class="content-wrapper d-flex align-items-center auth px-0">
-          <div class="row w-100 mx-0">
-            <div class="col-lg-4 mx-auto">
-              <div class="auth-form-light text-left py-5 px-4 px-sm-5" id='login-app'>
-                <div class="brand-logo" style='text-align:center;'>
-                  <img src="{{ asset('ladun/login/images/nadha_resto.png') }}" alt="logo" style='width:200px; '>
-                  <h4 style="font-weight:bold;">Aplikasi Manajemen Restoran</h4>
-                </div>
-                <div style='text-align:center;'>
-                <h6 class="font-weight-light">Harap masuk untuk melanjutkan.</h6>
-                <div>
-                <div class="pt-3">
-                  <div class="form-group">
-                    <input v-model='userInput' type='text' class='form-control' id='txtUsername' placeholder='Username'>
-                  </div>
-                  <div class="form-group">
-                    <input v-model='passwordInput' class="form-control" type='password' id="txtPassword" placeholder="Password">
-                  </div>
-                  <div id='capNotifLogin'>
+<body>
+    <div id="app">
+        <section class="section">
+            <div class="container mt-5">
+                <div class="row">
+                    <div
+                        class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                        <div class="login-brand">
+                            <img src="https://demo.getstisla.com/assets/img/stisla-fill.svg" alt="logo" width="100"
+                                class="shadow-light rounded-circle">
+                        </div>
 
-                  </div>
-                  <div class="mt-3">
-                    <a id='btnMasuk' v-on:click='klikSaya' class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="#!">Masuk</a>
-                  </div>
-                  <div class="mt-2">
-                  <div style='padding-top:12px;'>
-                      <h5 class="font-weight-light">2020 &copy; <a href='http://haxors.or.id' target='new'></a></h5>
-                  </div>
-                  <input type="hidden" value="" id='txtHomebase'>
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h4>Login</h4>
+                            </div>
+
+                            <div class="card-body">
+                                <form method="POST" action="#" class="needs-validation" novalidate="">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input id="email" type="email" class="form-control" id="txtEmail" tabindex="1"
+                                            required autofocus>
+                                        <div class="invalid-feedback">
+                                            Please fill in your email
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="d-block">
+                                            <label for="password" class="control-label">Password</label>
+                                            <div class="float-right">
+                                                <a href="auth-forgot-password.html" class="text-small">
+                                                    Forgot Password?
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <input id="password" type="password" class="form-control" name="password"
+                                            tabindex="2" required>
+                                        <div class="invalid-feedback">
+                                            please fill in your password
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="remember" class="custom-control-input"
+                                                tabindex="3" id="remember-me">
+                                            <label class="custom-control-label" for="remember-me">Remember Me</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                                            Login
+                                        </button>
+                                    </div>
+                                </form>
+                                <div class="text-center mt-4 mb-3">
+                                    <div class="text-job text-muted">Login With Social</div>
+                                </div>
+                                <div class="row sm-gutters">
+                                    <div class="col-6">
+                                        <a class="btn btn-block btn-social btn-facebook">
+                                            <span class="fab fa-facebook"></span> Facebook
+                                        </a>
+                                    </div>
+                                    <div class="col-6">
+                                        <a class="btn btn-block btn-social btn-twitter">
+                                            <span class="fab fa-twitter"></span> Twitter
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="mt-5 text-muted text-center">
+                            Don't have an account? <a href="auth-register.html">Create One</a>
+                        </div>
+                        <div class="simple-footer">
+                            Copyright &copy; Stisla 2018
+                        </div>
+                    </div>
                 </div>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <!-- content-wrapper ends -->
+        </section>
     </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-  <!-- base:js -->
-  <script src="{{ asset('/ladun/login/js/login.js') }}"></script>
-  <script src="{{ asset('/ladun/login/vendors/base/vendor.bundle.base.js') }}"></script>
-  <script src="https://demo.getstisla.com/assets/modules/izitoast/js/iziToast.min.js"></script>
-  <!-- endinject -->
-  <!-- inject:js -->
-  <script src="{{ asset('/ladun/login/js/template.js') }}"></script>
- 
-  <!-- endinject -->
+
+    <!-- General JS Scripts -->
+    <script src="https://demo.getstisla.com/assets/modules/jquery.min.js"></script>
+    <script src="https://demo.getstisla.com/assets/modules/popper.js"></script>
+    <script src="https://demo.getstisla.com/assets/modules/tooltip.js"></script>
+    <script src="https://demo.getstisla.com/assets/modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://demo.getstisla.com/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="https://demo.getstisla.com/assets/modules/moment.min.js"></script>
+    <script src="https://demo.getstisla.com/assets/js/stisla.js"></script>
+
+    <!-- JS Libraies -->
+
+    <!-- Page Specific JS File -->
+
+    <!-- Template JS File -->
+    <script src="https://demo.getstisla.com/assets/js/scripts.js"></script>
+    <script src="{{ asset('ladun/login/js/login.js') }}"></script>
 </body>
 
 </html>

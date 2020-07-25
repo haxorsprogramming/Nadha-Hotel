@@ -1,0 +1,2 @@
+//inisialisasi
+$('#txtEmail').focus();
