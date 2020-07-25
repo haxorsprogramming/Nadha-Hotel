@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PageCon@login');
+Route::get('/', 'PageCon@home');

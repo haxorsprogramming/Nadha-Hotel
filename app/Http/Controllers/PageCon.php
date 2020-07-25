@@ -8,10 +8,9 @@ use App\Room;
 
 class PageCon extends Controller
 {
-    public function login()
+    public function home()
     {
-        $room = Room::all();
-        return view('page.loginPage', ['room' => $room]);
+        return view('home.home');
     }
     
 }
