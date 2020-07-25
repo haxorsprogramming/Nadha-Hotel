@@ -17,5 +17,15 @@ class PageCon extends Controller
     {
         return view('login.login');
     }
+
+    public function prosesLogin(Request $request)
+    {
+        $username = $request -> username;
+        $password = $request -> password;
+
+        $statLog = ['username' => $username, 'password' => $password];
+        
+        return \Response::json($statLog);
+    }
     
 }

@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PageCon@home');
 
 Route::get('/login', 'PageCon@login');
+Route::post('/prosesLogin', 'PageCon@prosesLogin');
