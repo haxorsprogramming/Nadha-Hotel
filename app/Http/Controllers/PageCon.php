@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Room;
+use App\UserMdl;
  
 class PageCon extends Controller
 {
@@ -20,12 +20,29 @@ class PageCon extends Controller
 
     public function prosesLogin(Request $request)
     {
-        $username = $request -> username;
-        $password = $request -> password;
+        $userForm = $request -> username;
+        $passForm = $request -> password;
+        //cek apakah user terdaftar
+        $cju = UserMdl::where('username', $userForm) -> count();
 
-        $statLog = ['username' => $username, 'password' => $password];
+        if($cju > 0){
+            $ud = UserMdl::where('username', $userForm) -> first();
+            $user = $ud -> username;
+            $pass = $ud -> password;
+            $cp = password_verify($passForm, $pass);
+    
+            if($cp == true){
+                $st = 'sucess';
+            }else{
+                $st = 'error';
+            }
+
+        }else{
+            $st = 'error';
+        }
         
-        return \Response::json($statLog);
+        $dr = ['status' => $st, 'jlhUser' => $cju];
+        return \Response::json($dr);
     }
     
 }
