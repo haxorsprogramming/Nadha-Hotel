@@ -32,7 +32,7 @@ class PageCon extends Controller
             $cp = password_verify($passForm, $pass);
     
             if($cp == true){
-                $st = 'sucess';
+                $st = 'success';
             }else{
                 $st = 'error';
             }
@@ -41,8 +41,13 @@ class PageCon extends Controller
             $st = 'error';
         }
         
-        $dr = ['status' => $st, 'jlhUser' => $cju];
+        $dr = ['status' => $st];
         return \Response::json($dr);
+    }
+
+    public function dashboard()
+    {
+        echo "hilang...";
     }
     
 }

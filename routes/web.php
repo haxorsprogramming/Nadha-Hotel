@@ -17,3 +17,5 @@ Route::get('/', 'PageCon@home');
 
 Route::get('/login', 'PageCon@login');
 Route::post('/prosesLogin', 'PageCon@prosesLogin');
+
+Route::get('/dashboard', 'PageCon@dashboard');

@@ -36,32 +36,18 @@
                             </div>
 
                             <div class="card-body">
-                                
                                     <div class="form-group">
-                                        <label for="email">Email</label>
+                                        <label for="email">Username</label>
                                         <input type="text" class="form-control" id="txtUsername">
-                                        <div class="invalid-feedback">
-                                            Please fill in your email
-                                        </div>
                                     </div>
-
                                     <div class="form-group">
                                         <div class="d-block">
                                             <label for="password" class="control-label">Password</label>
-                                            <div class="float-right">
-                                                <a href="#!" class="text-small">
-                                                    Forgot Password?
-                                                </a>
-                                            </div>
                                         </div>
                                         <input type="password" class="form-control" id='txtPassword'>
-                                        <div class="invalid-feedback">
-                                            please fill in your password
-                                        </div>
                                     </div>
-
                                     <div class="form-group">
-                                        <a class="btn btn-primary btn-lg btn-block" href='#!' @click='loginAtc'>
+                                        <a class="btn btn-primary btn-lg btn-block" href='#!' @click='loginAtc' id='btnLogin'>
                                             Login
                                         </a>
                                     </div>                             
@@ -87,7 +73,7 @@
     <script src="https://demo.getstisla.com/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
     <script src="https://demo.getstisla.com/assets/modules/moment.min.js"></script>
     <script src="https://demo.getstisla.com/assets/js/stisla.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <!-- JS Libraies -->
 
     <!-- Page Specific JS File -->
