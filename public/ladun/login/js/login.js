@@ -1,36 +1,34 @@
 //inisialisasi
 document.getElementById("txtUsername").focus();
+//route 
+const routeToLogin = server+'/prosesLogin';
 
 $.ajaxSetup({
     headers: {
-        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-    },
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
 });
+
 
 var app = new Vue({
     el: "#app",
     data: {
-        appName: "NadhaResto",
-        username : '',
-        password : ''
+        appName: "Nadha Hotel"
     },
     methods: {
         loginAtc: function () {
-            this.username = document.getElementById('txtUsername').value;
-            this.password = document.getElementById('txtPassword').value;
+            let username = document.getElementById('txtUsername').value;
+            let password = document.getElementById('txtPassword').value;
             //request login
             $('#btnLogin').addClass('disabled');
-            axios.post("/prosesLogin", {username : this.username, password : this.password}).then(function(response){
-                let obj = response.data; 
-                console.log(obj);
-                if(obj.status === 'success'){
-                    setTimeout(function(){window.location.assign('/dashboard');}, 800);
-                }else{
-                    pesanUmumApp('error', 'Gagal', 'Login gagal, periksa kembali username & password anda!!!');
+            $.post(routeToLogin, {'username':username, 'password':password}, function(data){
+                if(data.status === 'error'){
+                    pesanUmumApp('warning', 'Login gagal!!', 'Upaya masuk gagal, periksa username & password..');
                     $('#btnLogin').removeClass('disabled');
+                    document.getElementById("txtUsername").focus();
+                }else{
+                    
                 }
-            }).catch(function (error) {
-                console.log(error);
             });
         }
     }

@@ -31,7 +31,7 @@ class PageCon extends Controller
             $pass = $ud -> password;
             $cp = password_verify($passForm, $pass);
     
-            if($cp == true){
+            if($cp === true){
                 $st = 'success';
             }else{
                 $st = 'error';
@@ -41,7 +41,7 @@ class PageCon extends Controller
             $st = 'error';
         }
         
-        $dr = ['status' => $st];
+        $dr = ['status' =>  $st ];
         return \Response::json($dr);
     }
 

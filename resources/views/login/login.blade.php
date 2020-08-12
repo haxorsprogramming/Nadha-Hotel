@@ -47,7 +47,8 @@
                                         <input type="password" class="form-control" id='txtPassword'>
                                     </div>
                                     <div class="form-group">
-                                        <a class="btn btn-primary btn-lg btn-block" href='#!' @click='loginAtc' id='btnLogin'>
+                                        <a class="btn btn-primary btn-lg btn-block btn-icon icon-left" href='#!' @click='loginAtc' id='btnLogin'>
+                                            <i class="fas fa-sign-in-alt"></i> 
                                             Login
                                         </a>
                                     </div>                             
@@ -64,7 +65,6 @@
     </div>
 
     <!-- General JS Scripts -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://demo.getstisla.com/assets/modules/jquery.min.js"></script>
     <script src="https://demo.getstisla.com/assets/modules/popper.js"></script>
@@ -80,6 +80,9 @@
 
     <!-- Template JS File -->
     <script src="https://demo.getstisla.com/assets/js/scripts.js"></script>
+    <script>
+        const server = "{{ url('') }}";
+    </script>
     <script src="{{ asset('ladun/login/js/login.js') }}"></script>
 </body>
 
