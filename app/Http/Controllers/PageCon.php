@@ -47,7 +47,7 @@ class PageCon extends Controller
 
     public function dashboard()
     {
-        echo "hilang...";
+        return view('home.dashboard');
     }
     
 }

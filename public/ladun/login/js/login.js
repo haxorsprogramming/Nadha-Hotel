@@ -1,5 +1,3 @@
-//inisialisasi
-document.getElementById("txtUsername").focus();
 //route 
 const routeToLogin = server+'/prosesLogin';
 
@@ -8,7 +6,6 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-
 
 var app = new Vue({
     el: "#app",
@@ -27,12 +24,17 @@ var app = new Vue({
                     $('#btnLogin').removeClass('disabled');
                     document.getElementById("txtUsername").focus();
                 }else{
-                    
+                    window.location.assign('/dashboard');
                 }
             });
         }
     }
 });
+
+function initF()
+{
+    document.querySelector("#txtUsername").focus();
+}
 
 function pesanUmumApp(icon, title, text)
 {
